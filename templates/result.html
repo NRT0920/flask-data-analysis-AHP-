@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>分析结果</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .container { max-width: 1000px; }
+        .card { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">分析结果</h1>
+
+        <div class="card p-4 shadow-sm">
+            <h3>数据集信息</h3>
+            {{ dataset_html | safe }}
+        </div>
+
+        <div class="card p-4 shadow-sm">
+            <h3>敏感性初评</h3>
+            {{ sensitivity_html | safe }}
+        </div>
+
+        <div class="card p-4 shadow-sm">
+            <h3>数据评分</h3>
+            {{ scoring_html | safe }}
+        </div>
+
+        <div class="card p-4 shadow-sm">
+            <h3>Word 报告</h3>
+            {{ word_html | safe }}
+        </div>
+
+        <div class="text-center">
+            <a href="{{ url_for('download_report', filename=excel_filename) }}" class="btn btn-success me-2">下载 Excel</a>
+            <a href="{{ url_for('download_report', filename=word_filename) }}" class="btn btn-success me-2">下载 Word</a>
+            <a href="/" class="btn btn-primary">返回</a>
+        </div>
+    </div>
+</body>
+</html>
