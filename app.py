@@ -413,4 +413,6 @@ def index():
 
 # 本地运行调试
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    import os
+    port = int(os.environ.get('PORT', 10000))  # Render 会自动注入 PORT 环境变量
+    app.run(host='0.0.0.0', port=port)

@@ -3,7 +3,7 @@ services:
     name: flask-data-analysis
     runtime: python
     buildCommand: pip install --use-deprecated=legacy-resolver -r requirements.txt
-    startCommand: gunicorn app:app
+    startCommand: gunicorn app:app --bind 0.0.0.0:10000
     envVars:
       - key: PYTHON_VERSION
         value: 3.10
