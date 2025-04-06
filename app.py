@@ -404,7 +404,13 @@ def show_result():
 def download_report(filename):
     return send_from_directory(app.config['REPORT_FOLDER'], filename)
 
+from flask import Flask
 
+app = Flask(__name__)
+@app.route('/')
+def index():
+    return 'Hello from Render!'
+
+# 本地运行调试
 if __name__ == '__main__':
-    # 本地运行时使用调试模式
     app.run(host='0.0.0.0', port=5000, debug=True)
